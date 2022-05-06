@@ -1,7 +1,7 @@
 /*
 Nome: Kleverson Kenji Iwatani
 Turma: AS31A - N11A 
-Data: 29/07/2022
+Data: 05/05/2022
 Exercício: ESTRUTURA DE REPETIÇÃO #4
 */
 
