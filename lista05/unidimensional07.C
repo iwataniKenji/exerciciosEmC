@@ -6,7 +6,7 @@ Exercício: VARIÁVEIS UNIDIMENSIONAIS #07
 */
 
 #include <stdio.h>
-#define DIAS_DO_MES 10 
+#define DIAS_DO_MES 30
 
 int main() 
 {
