@@ -12,17 +12,28 @@ Exercício: Você é funcionário da empresa Economy Energia e foi designado par
 
 int main() 
 {
-    int linhaDeProducao[LINHASDEPRODUCAO][EQUIPAMENTOS],
-        lin = 0,
-        col = 0,
-        menorGasto = 0,
-        maiorGasto = 0,
-        equipamentoEscolhido = 0,
-        linhaEscolhida = 0,
-        linhaDeMenorConsumo = 0,
-        somaDeGastos = 0,
-        somaDeGastosAux = 0;
-    
+    int   linhaDeProducao[LINHASDEPRODUCAO][EQUIPAMENTOS],
+          lin = 0,
+          col = 0,
+          menorGasto = 0,
+          maiorGasto = 0,
+          equipamentoEscolhido = 0,
+          linhaEscolhida = 0,
+          linhaDeMenorConsumo = 0,
+          somaDeGastos = 0,
+          somaDeGastosAux = 0,
+          horas = 8,
+          dias = 25,
+          kwTotal = 0;
+    float despesaPeloConsumo = 0,
+          despesaTotal = 0,
+          despesaDoIcms = 0,
+          despesaDoPis = 0,
+          despesaDoCofins = 0,
+          icms = 0.31,
+          pis = 0.0125,
+          cofins = 0.0509;
+
     // gerando gasto aleatório
     for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
       for (col = 0; col < EQUIPAMENTOS; col++) {
@@ -99,9 +110,35 @@ int main()
     // 5 - retornando a linha que possui menor consumo
     printf("\n\n5 - A linha de produção %d tem o menor consumo.", linhaDeMenorConsumo + 1);
 
-    // entregando o valor da fatura mensal da indústria
+    // 6 - entregando o valor da fatura mensal da indústria
+    for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
+      for (col = 0; col < EQUIPAMENTOS; col++) {
+        kwTotal = kwTotal + linhaDeProducao[lin][col];
+      }
+    }
 
-    // retornando custo de produção em cada linha para 14 horas de produção
+    // calculo do gasto relativo
+    if (kwTotal > 15000) {
+      despesaPeloConsumo = ((kwTotal - 15000) * 1.73) + (500 * 1.25) + (10000 * 1.08);
+    } else if (kwTotal > 10000) {
+      despesaPeloConsumo = ((kwTotal - 10000) * 1.25) + (10000 * 1.08);
+    } else {
+      despesaPeloConsumo = kwTotal * 1.08;
+    }
+
+    // calculo dos impostos
+    despesaDoIcms = despesaPeloConsumo * icms;
+    despesaDoPis = despesaPeloConsumo * pis;
+    despesaDoCofins = despesaPeloConsumo * cofins;
+
+    // imprimindo valores das despesas
+    printf("\n\n6 - Fatura do mês:");
+    printf("\n\nValor do ICMS      | R$%8.2f", despesaDoIcms);
+    printf("\nValor do PIS/PASEP | R$%8.2f", despesaDoPis);
+    printf("\nValor do COFINS    | R$%8.2f", despesaDoCofins);
+    printf("\nValor total        | R$%8.2f", despesaPeloConsumo);
+
+    // 7 - retornando custo de produção em cada linha para 14 horas de produção
 
     // outra informação
 
