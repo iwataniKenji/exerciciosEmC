@@ -18,7 +18,8 @@ int main()
         menorGasto = 0,
         maiorGasto = 0,
         equipamentoEscolhido = 0,
-        linhaEscolhida = 0;
+        linhaEscolhida = 0,
+        somaDeGastos = 0;
     
     // gerando gasto aleatório
     for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
@@ -52,10 +53,10 @@ int main()
         }
       }
     }
-    printf("\n\n2 - Com %dkw/h, a máquina %d da linha de produção %d é a mais econômica.", menorGasto, equipamentoEscolhido, linhaEscolhida);
+    printf("\n\n2 - Com %dkw/h, a máquina %d da linha de produção %d e a mais econômica.", menorGasto, equipamentoEscolhido, linhaEscolhida);
 
     // retornando equipamento MENOS econômico de cada posição de máquina
-    printf("\n\n3 - Apresentando o equipamento menos econômico de cada posição:\n");
+    printf("\n\n3 - Equipamento menos econômico em cada posição:\n");
     for(col = 0; col < EQUIPAMENTOS; col++) {
       for (lin = 0; lin < LINHASDEPRODUCAO; lin++) {
         if (lin == 0) {
@@ -65,6 +66,22 @@ int main()
         }
         if (lin == LINHASDEPRODUCAO - 1) {
           printf("\nNa ordem %d, %d é o menos econômico.", col + 1, maiorGasto);
+        }
+      }
+    }
+
+    // apresentando a media de consumo em cada uma das linhas de produção
+    printf("\n\n4 - Média de consumo por linha de produção:\n");
+    for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
+      for (col = 0; col < EQUIPAMENTOS; col++) {
+        if (col == 0) {
+          somaDeGastos = 0;
+          somaDeGastos = somaDeGastos + linhaDeProducao[lin][col];
+        } else {
+          somaDeGastos = somaDeGastos + linhaDeProducao[lin][col];
+        }
+        if (col == EQUIPAMENTOS - 1) {
+          printf("\nA média de consumo da linha %2d é de %d", lin + 1, somaDeGastos / EQUIPAMENTOS);
         }
       }
     }
