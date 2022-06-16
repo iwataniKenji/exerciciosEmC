@@ -77,6 +77,8 @@ int main()
         } else if (linhaDeProducao[lin][col] > maiorGasto) {
           maiorGasto = linhaDeProducao[lin][col];
         }
+
+        // quando chegar no último elemento
         if (lin == LINHASDEPRODUCAO - 1) {
           printf("\nNa ordem %d, %d é o menos econômico.", col + 1, maiorGasto);
         }
@@ -88,14 +90,16 @@ int main()
     for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
       for (col = 0; col < EQUIPAMENTOS; col++) {
         if (col == 0) {
-          somaDeGastos = 0;
           somaDeGastos = linhaDeProducao[lin][col];
         } else {
           somaDeGastos = somaDeGastos + linhaDeProducao[lin][col];
         }
+
+        // quando chegar no último elemento
         if (col == EQUIPAMENTOS - 1) {
           printf("\nA média de consumo da linha %2d é de %d", lin + 1, somaDeGastos / EQUIPAMENTOS);
 
+          // identificando linha com menor consumo
           if (lin == 0) {
             linhaDeMenorConsumo = lin;
             somaDeGastosAux = somaDeGastos;
@@ -118,6 +122,7 @@ int main()
     }
 
     // calculo do gasto relativo
+    kwTotal = kwTotal * horas * dias;
     if (kwTotal > 15000) {
       despesaPeloConsumo = ((kwTotal - 15000) * 1.73) + (500 * 1.25) + (10000 * 1.08);
     } else if (kwTotal > 10000) {
@@ -133,12 +138,25 @@ int main()
 
     // imprimindo valores das despesas
     printf("\n\n6 - Fatura do mês:");
-    printf("\n\nValor do ICMS      | R$%8.2f", despesaDoIcms);
-    printf("\nValor do PIS/PASEP | R$%8.2f", despesaDoPis);
-    printf("\nValor do COFINS    | R$%8.2f", despesaDoCofins);
-    printf("\nValor total        | R$%8.2f", despesaPeloConsumo);
+    printf("\n\nValor do ICMS      | R$%11.2f", despesaDoIcms);
+    printf("\nValor do PIS/PASEP | R$%11.2f", despesaDoPis);
+    printf("\nValor do COFINS    | R$%11.2f", despesaDoCofins);
+    printf("\nValor total        | R$%11.2f", despesaPeloConsumo);
 
     // 7 - retornando custo de produção em cada linha para 14 horas de produção
+    printf("\n\n7 - Custo de confecção de um produto com tempo de duração de 14 horas:\n");
+    for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
+      for (col = 0; col < EQUIPAMENTOS; col++) {
+        if (col == 0) {
+          kwTotal = linhaDeProducao[lin][col];
+        } else {
+          kwTotal = kwTotal + linhaDeProducao[lin][col];
+        }
+        if (col == EQUIPAMENTOS - 1) {
+          printf("\nNa linha %2d: R$%6d", lin + 1, kwTotal * 14);
+        }
+      }
+    }
 
     // outra informação
 
