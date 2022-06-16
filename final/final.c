@@ -43,7 +43,8 @@ int main()
 
     // 1 - listando gasto individual
     printf("1 - Consumo individual por equipamento:");
-    printf("\n\n          | Maquina 1 | Maquina 2 | Maquina 3 | Maquina 4 | Maquina 5 | Maquina 6 |");
+    printf("\n\n           -----------------------------------------------------------------------");
+    printf("\n          | Maquina 1 | Maquina 2 | Maquina 3 | Maquina 4 | Maquina 5 | Maquina 6 |");
     printf("\n----------------------------------------------------------------------------------");
     for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
         printf("\nLinha %2d  |", lin + 1);
@@ -51,18 +52,19 @@ int main()
         printf(" %4dkw/h  |", linhaDeProducao[lin][col]);
       }
     }
+    printf("\n----------------------------------------------------------------------------------");
 
     // 2 - retornando equipamento MAIS econômico da indústria
     for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
       for (col = 0; col < EQUIPAMENTOS; col++) {
         if (lin == 0 && col == 0) {
           menorGasto = linhaDeProducao[lin][col];
-          equipamentoEscolhido = EQUIPAMENTOS + 1;
-          linhaEscolhida = LINHASDEPRODUCAO + 1;
+          equipamentoEscolhido = col + 1;
+          linhaEscolhida = lin + 1;
         } else if (linhaDeProducao[lin][col] < menorGasto) {
           menorGasto = linhaDeProducao[lin][col];
-          equipamentoEscolhido = EQUIPAMENTOS + 1;
-          linhaEscolhida = LINHASDEPRODUCAO + 1;
+          equipamentoEscolhido = col + 1;
+          linhaEscolhida = lin + 1;
         }
       }
     }
@@ -144,7 +146,7 @@ int main()
     printf("\nValor total        | R$%11.2f", despesaPeloConsumo);
 
     // 7 - retornando custo de produção em cada linha para 14 horas de produção
-    printf("\n\n7 - Custo de confecção de um produto com tempo de duração de 14 horas:\n");
+    printf("\n\n7 - Custo de confecção de um produto com tempo de duraçao de 14 horas:\n");
     for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
       for (col = 0; col < EQUIPAMENTOS; col++) {
         if (col == 0) {
@@ -158,7 +160,18 @@ int main()
       }
     }
 
-    // outra informação
+    // 8 - outra informação (custo individual por equipamento à hora)
+    printf("\n\n8 - Custo individual por equipamento à hora (valor base: R$1,08 por kw/h):");
+    printf("\n\n           -----------------------------------------------------------------------");
+    printf("\n          | Maquina 1 | Maquina 2 | Maquina 3 | Maquina 4 | Maquina 5 | Maquina 6 |");
+    printf("\n----------------------------------------------------------------------------------");
+    for(lin = 0; lin < LINHASDEPRODUCAO; lin++) {
+        printf("\nLinha %2d  |", lin + 1);
+      for (col = 0; col < EQUIPAMENTOS; col++) {
+        printf(" R$%7.2f |", linhaDeProducao[lin][col] * 1.08);
+      }
+    }
+    printf("\n----------------------------------------------------------------------------------");
 
     return 0;
 }
