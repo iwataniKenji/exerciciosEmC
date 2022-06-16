@@ -8,6 +8,8 @@
     "stdio.h": "c",
     "unidimensional07.C": "cpp",
     "LT05_EX07.C": "cpp",
-    "string.h": "c"
+    "string.h": "c",
+    "LT08_EX02.C": "cpp",
+    "stdlib.h": "c"
   }
 }
