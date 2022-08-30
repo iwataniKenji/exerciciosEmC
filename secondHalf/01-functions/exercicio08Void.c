@@ -26,12 +26,15 @@ int main() {
     case 'A':
       lerTresNumeros(&n1, &n2, &n3);
       printf("\nA media aritimetica e %0.1f", mediaAritimetica(n1, n2, n3));
+      break;
     case 'P':
       lerTresNumerosTresPesos(&n1, &p1, &n2, &p2, &n3, &p3);
       printf("\nA media ponderada e %0.1f", mediaPonderada(n1, p1, n2, p2, n3, p3));
+      break;
     case 'H':
       lerTresNumeros(&n1, &n2, &n3);
       printf("\nA media harmonica e %0.1f", mediaHarmonica(n1, n2, n3));
+      break;
   }
 }
 
