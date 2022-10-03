@@ -1,3 +1,7 @@
+// NOME: KLEVERSON KENJI IWATANI
+// RA: 2465205
+// PROFESSOR: GABRIEL CANHADAS GENVIGIR
+
 #include <stdio.h> 
 
 int main() {
@@ -14,17 +18,17 @@ int main() {
   int x;
 
   // e) criar um ponteiro apontando para o endereço de a
-  int *ponteiro;
-  ponteiro = &a;
+  int *pointer;
+  pointer = &a;
   
   // f) incrementar o ponteiro 20 vezes, mostrando o conteúdo do endereço apontado, em formato hexadecimal
   int i = 0;
   
   for (i = 0; i < 20; i++) {
-    ponteiro++;
+    pointer++;
   }
 
-  printf("\n%X", *ponteiro);
+  printf("\n%X", *pointer);
 
   // g) caso o ‘novo’ endereço para o qual o ponteiro aponta, coincida com o endereço de alguma outra variável declarada no programa, mostre uma mensagem informando cada ocorrência, da seguinte forma
 }

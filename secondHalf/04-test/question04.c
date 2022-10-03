@@ -1,3 +1,7 @@
+// NOME: KLEVERSON KENJI IWATANI
+// RA: 2465205
+// PROFESSOR: GABRIEL CANHADAS GENVIGIR
+
 #include <stdio.h> 
 
 int verifica_dia(int, int, int*);
