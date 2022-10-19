@@ -37,3 +37,11 @@ int main() {
 
   return 0;
 }
+
+/* notation */
+
+// checa se possui memoria suficiente para alocar
+if (malloc (dimensao * sizeof(int) == NULL)) {
+  printf("Erro na alocação de memoria");
+  return NULL;
+}
