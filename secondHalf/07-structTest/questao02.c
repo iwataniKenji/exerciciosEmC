@@ -5,24 +5,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct l {
+// declara uma "struct" com 4 variáveis de tipo primitivo
+struct l { 
   int cod;
   int quantidade;
   char descricao[50];
   float valorunit;
-}; typedef struct l tp_lista;
+};
+
+// define um alias para o "strut l" chamado "tp_lista"
+typedef struct l tp_lista; 
 
 int main() {
+  // declara um array "compras" do tipo da struct
   tp_lista *compras;
   int i, qtd, fim;
   
   qtd = 2;
   
+  // checa se a alocação de memória tem valor nulo
   if ((malloc(qtd * sizeof(tp_lista)) == NULL)) {
-    printf("\nSem espaco de memoria\n");
+    // caso sim, imprime mensagem de erro e sai do programa
+    printf("\nSem espaco de memoria\n"); 
+    // parâmetro 1 indica encerramento anormal do código  
     exit(1);
   }
   
+  // array "compras" recebe o endereço de memória que foi alocada, especificado pelo tamanho em bytes que a struct ocupa vezes a quantidade de elementos do array
   compras = malloc(qtd * sizeof(tp_lista));
 
   for (i = 0; i < qtd; i = i + 1) {
@@ -39,7 +48,9 @@ int main() {
     scanf("%d",&fim);
     
     if(fim == 1) { 
-      realloc(compras,2 * sizeof(tp_lista));
+      // realoca memória, dobrando o número de bytes que o array "compras" irá ter
+      // código corrigido -> realloc(compras, qtd * 2 * sizeof(tp_lista));
+      realloc(compras, 2 * sizeof(tp_lista));
       qtd = qtd + 2;
     }
     
