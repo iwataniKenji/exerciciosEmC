@@ -12,6 +12,7 @@ struct c {
 } typedef tipoCarro;
 
 tipoCarro *aloca_memoria(int);
+void imprime_resultado_condicional(tipoCarro *, int);
 
 int main() {
   tipoCarro *carro;
@@ -42,22 +43,7 @@ int main() {
     }
   }
 
-  valor = 1;
-
-  while (valor != 0) {
-    printf("\nRetornar a informação de todos os carros com preço menor que...: ");
-    scanf("%d", &valor);
-
-    for (i = 0; i < quantidade; i = i + 1) {
-      if (carro[i].preco < valor) {
-        printf("\n------------------------------\n");
-        printf("\nMARCA.....: %s",carro[i].marca);
-        printf("\nANO.......: %d",carro[i].ano);
-        printf("\nPREÇO.....: %d",carro[i].preco);
-        printf("\n");
-      }
-    } 
-  }
+  imprime_resultado_condicional(carro, quantidade);
 
   return 0;
 }
@@ -74,4 +60,26 @@ tipoCarro *aloca_memoria(int dimensao) {
   }
 
   return vetor;
+}
+
+// impressão de valores abaixo do informado
+void imprime_resultado_condicional(tipoCarro *carro, int quantidade) {
+  int i, valor;
+
+  valor = 1;
+
+  while (valor != 0) {
+    printf("\nRetornar a informação de todos os carros com preço menor que...: ");
+    scanf("%d", &valor);
+
+    for (i = 0; i < quantidade; i = i + 1) {
+      if (carro[i].preco < valor) {
+        printf("\n------------------------------\n");
+        printf("\nMARCA.....: %s",carro[i].marca);
+        printf("\nANO.......: %d",carro[i].ano);
+        printf("\nPREÇO.....: %d",carro[i].preco);
+        printf("\n");
+      }
+    } 
+  }
 }
