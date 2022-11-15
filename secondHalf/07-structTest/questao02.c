@@ -48,8 +48,8 @@ int main() {
     scanf("%d",&fim);
     
     if(fim == 1) { 
-      // realoca memória, dobrando o número de bytes que o array "compras" irá ter
-      // código corrigido -> realloc(compras, qtd * 2 * sizeof(tp_lista));
+      // realoca memória, dobrando o número de bytes que o array "compras" possui
+      // código corrigido -> compras = realloc(compras, qtd * 2 * sizeof(tp_lista));
       realloc(compras, 2 * sizeof(tp_lista));
       qtd = qtd + 2;
     }
