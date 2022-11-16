@@ -35,15 +35,15 @@ int main() {
   printf("\nA diferenca entre as datas é de %d dias", conta_diferenca_dias(primeiraData, segundaData));
 }
 
-int conta_diferenca_dias(tipoData primeira, tipoData segunda) {
-  int primeiraDias, segundaDias;
+int conta_diferenca_dias(tipoData primeiraData, tipoData segundaData) {
+  int primeiraDataDias, segundaDataDias;
 
-  primeiraDias = primeira.dia + (primeira.mes * 30) + (primeira.ano * 365);
-  segundaDias = segunda.dia + (segunda.mes * 30) + (segunda.ano * 365);
+  primeiraDataDias = primeiraData.dia + (primeiraData.mes * 30) + (primeiraData.ano * 365);
+  segundaDataDias = segundaData.dia + (segundaData.mes * 30) + (segundaData.ano * 365);
 
-  if (primeiraDias > segundaDias) {
-    return primeiraDias - segundaDias;
+  if (primeiraDataDias > segundaDataDias) {
+    return primeiraDataDias - segundaDataDias;
   } else {
-    return segundaDias - primeiraDias;
+    return segundaDataDias - primeiraDataDias;
   }
 }
