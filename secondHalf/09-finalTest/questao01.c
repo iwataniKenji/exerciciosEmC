@@ -91,7 +91,6 @@ int main() {
 
   fim = 0;
 
-  // aloca dados de 1 médico
   for (i = 0; i < qtdMedico; i = i + 1) {
     printf("Digite o código do %dº médico: ", i + 1);
     scanf("%s", &medico[i].codigomedico);
