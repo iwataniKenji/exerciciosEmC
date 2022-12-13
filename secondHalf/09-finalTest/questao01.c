@@ -113,10 +113,10 @@ int main() {
   preenche_consulta(paciente, medico, consulta, qtdPaciente, qtdMedico, qtdConsulta);
 
   for (i = 0; i < qtdConsulta; i = i + 1) {
-    printf("\nCÓDIGO: %s", consulta[i].codigopaciente);
-    printf("\nOUTRO: %s", consulta[i].codigomedico);
-    printf("\nDATA: %s", consulta[i].dataconsulta);
-    printf("\nDIA: %s", consulta[i].diadasemana);
+    printf("\nPACIENTE.: %s", consulta[i].codigopaciente);
+    printf("\nMEDICO...: %s", consulta[i].codigomedico);
+    printf("\nDATA.....: %s", consulta[i].dataconsulta);
+    printf("\nDIA......: %s", consulta[i].diadasemana);
   }
 
   return 0;
