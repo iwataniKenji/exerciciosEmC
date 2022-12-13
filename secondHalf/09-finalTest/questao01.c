@@ -120,17 +120,6 @@ int main() {
     printf("\nDIA: %s", consulta[i].diadasemana);
   }
 
-  // 6 - método bolha para classificar vetor de PACIENTES
-  // for (i = 0; i < 10; i++) {
-  //   for(j = 0; j < 9; j++) {
-  //     if (vetor[j] > vetor[j + 1]) {
-  //       aux = vetor[j];
-  //       vetor[j] = vetor[j + 1];
-  //       vetor[j + 1] = aux;
-  //     }
-  //   }
-  // } 
-
   return 0;
 }
 
